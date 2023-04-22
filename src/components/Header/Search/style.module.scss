@@ -1,0 +1,43 @@
+.wrapper{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 35px;
+    width: 400px;
+    border: 1px solid #202C45;
+    border-radius: 16.5px;
+    font-size: 12px;
+    
+    
+    img{
+        margin-left: 10px;
+        margin-right: 10px;
+        width: 21px;
+        height: 21px;
+    }
+    form{
+        padding-right: 10px;
+        width: -webkit-fill-available;
+    }
+
+    input{
+        border: none;
+        color: rgba(0, 0, 0, 0.74);
+        width: -webkit-fill-available;
+        font-weight: 500;
+        
+        
+    };
+
+    :focus-visible{
+        border: none;
+        outline: none;
+        color: rgba(0, 0, 0);
+
+    };
+   
+    
+}
+
+
+

@@ -1,0 +1,18 @@
+.wrapper {
+  width: 200px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: #cecece 2px solid;
+  color: #1c1d1f;
+  cursor: pointer;
+  &:hover {
+    background-color: #f7f7f7;
+  }
+
+  span {
+    font-weight: 600;
+    font-size: 14px;
+  }
+}
