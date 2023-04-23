@@ -10,6 +10,7 @@ import style from "./style.module.scss";
 import Search from "./Search";
 import Button from "../Button/Button";
 import BottonIcon from "../Button/BottonIcon";
+import { Link } from "react-router-dom";
 
 const cx = classNames.bind(style);
 
@@ -29,7 +30,11 @@ export default function Header() {
       </div>
       <div className={cx(style.right)}>
         <BottonIcon icon={cart} iconHover={cartHover} />
-        <Button>Đăng nhập</Button>
+        <Button>
+          <Link to={"./login"} style={{ textDecoration: "none", color: 'var(--primary)' }}>
+            Đăng nhập
+          </Link>
+        </Button>
         <Button border={true}>Đăng ký</Button>
       </div>
     </div>

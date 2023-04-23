@@ -20,11 +20,8 @@ export default function CartCourse({ title }) {
         <div className={cx(style.stars)}>
           <img src={star} alt="" />
           <img src={star} alt="" />
-
           <img src={star} alt="" />
-
           <img src={star} alt="" />
-
           <img src={star} alt="" />
         </div>
       </div>
