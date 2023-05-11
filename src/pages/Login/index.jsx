@@ -10,12 +10,14 @@ import CartSocial from "./CartSocial";
 import { login } from "../../service/auth";
 import { useDispatch } from "react-redux";
 import { getProfileAsync } from "../../redux/authSlice";
+import appleIcon from './apple-logo.png'
+import facebookIcon from "./facebook (2).png";
 const cx = classNames.bind(style);
 
 export default function Login() {
   const [form] = Form.useForm();
   const dispath = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -113,8 +115,7 @@ export default function Login() {
               console.log(data);
               localStorage.setItem("access_token", data.access_token);
               dispath(getProfileAsync());
-              navigate('/')
-
+              navigate("/");
             } else {
               //thong bao loi
             }
@@ -176,8 +177,8 @@ export default function Login() {
             style={{ width: "100%", display: "flex", flexDirection: "column" }}
           >
             <CartSocial />
-            <CartSocial />
-            <CartSocial />
+            <CartSocial icon={facebookIcon} title="Facebook" />
+            <CartSocial icon={appleIcon} title="Apple"/>
           </div>
           <span style={{ color: "var(--text-color-3)", marginTop: "25px" }}>
             Already have an <strong>account</strong>?{" "}

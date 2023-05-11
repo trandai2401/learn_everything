@@ -3,10 +3,10 @@ import Button from "../../components/Button/Button";
 import style from "./cartSocail.module.scss";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
-import google_icon from './google.svg'
+import google_icon from "./google.svg";
 const cx = classNames.bind(style);
 
-export default function CartSocial() {
+export default function CartSocial({ icon = google_icon, title = "Google" }) {
   return (
     <div
       style={{
@@ -16,7 +16,7 @@ export default function CartSocial() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        marginBottom : "10px"
+        marginBottom: "10px",
       }}
     >
       <Link
@@ -34,8 +34,21 @@ export default function CartSocial() {
           textDecoration: "none",
         }}
       >
-        <img src={google_icon} alt="" style={{position: "absolute", left: "20px"}} />
-        <span style={{ fontSize: "12px", fontWeight: "600", color:"var(--text-color-3)" }}>CartSocial</span>
+        <img
+          src={icon}
+          alt=""
+          width={"25px"}
+          style={{ position: "absolute", left: "20px" }}
+        />
+        <span
+          style={{
+            fontSize: "12px",
+            fontWeight: "600",
+            color: "var(--text-color-3)",
+          }}
+        >
+          {title}
+        </span>
       </Link>
     </div>
   );

@@ -11,6 +11,12 @@ export const authSlice = createSlice({
     setLogin: (state, action) => {
       state.user = action.payload;
     },
+
+    signOut: (state) => {
+      state.user = null;
+      state.cart = [];
+      localStorage.removeItem("access_token");
+    },
     // increment: (state) => {
     //   // Redux Toolkit allows us to write "mutating" logic in reducers. It
     //   // doesn't actually mutate the state because it uses the immer library,
@@ -27,7 +33,7 @@ export const authSlice = createSlice({
   },
 });
 
-export const { setLogin } = authSlice.actions;
+export const { setLogin, signOut } = authSlice.actions;
 
 // The function below is called a thunk and allows us to perform async logic. It
 // can be dispatched like a regular action: `dispatch(incrementAsync(10))`. This
