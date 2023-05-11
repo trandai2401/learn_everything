@@ -4,7 +4,6 @@ import style from "./cartSocail.module.scss";
 import classNames from "classnames";
 import { Link } from "react-router-dom";
 import google_icon from './google.svg'
-const cx = classNames.bind(style);
 
 export default function CartSocial() {
   return (

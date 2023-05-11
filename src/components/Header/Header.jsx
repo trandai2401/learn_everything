@@ -18,10 +18,11 @@ export default function Header() {
   return (
     <div className={cx(style.wrapper)}>
       <div className={cx(style.left)}>
-        <img className={cx(style.logo)} src={logo} alt="" />
+        <Link to={""}>
+          <img className={cx(style.logo)} src={logo} alt="" />
+        </Link>
         <div className={cx(style.category_wrapper)}>
           <img src={logo_category} alt="" />
-
           <span>Danh mục</span>
         </div>
       </div>
@@ -31,11 +32,18 @@ export default function Header() {
       <div className={cx(style.right)}>
         <BottonIcon icon={cart} iconHover={cartHover} />
         <Button>
-          <Link to={"./login"} style={{ textDecoration: "none", color: 'var(--primary)' }}>
+          <Link
+            to={"./login"}
+            style={{ textDecoration: "none", color: "var(--primary)" }}
+          >
             Đăng nhập
           </Link>
         </Button>
-        <Button border={true}>Đăng ký</Button>
+        <Button border={true}>
+          <Link to={"./sign_up"} style={{ textDecoration: "none" }}>
+            Đăng ký
+          </Link>
+        </Button>
       </div>
     </div>
   );

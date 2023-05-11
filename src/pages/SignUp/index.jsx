@@ -7,9 +7,10 @@ import { Checkbox, Form, Input } from "antd";
 import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
 import CartSocial from "./CartSocial";
+import { login } from "../../service/auth";
 const cx = classNames.bind(style);
 
-export default function Login() {
+export default function SignUp() {
   return (
     <div
       style={{
@@ -99,9 +100,10 @@ export default function Login() {
           name="basic"
           labelCol={{ span: 8 }}
           style={{ maxWidth: 600 }}
-          // initialValues={{ remember: true }}
-          onFinish={() => {}}
-          onFinishFailed={() => {}}
+          onFinish={(values) => {
+            console.log(values);
+          }}
+          onFinishFailed={(values) => {}}
           autoComplete="off"
         >
           <Form.Item
@@ -169,10 +171,12 @@ export default function Login() {
           >
             Or with
           </span>
-          <div style={{width: "100%", display: "flex"}}>
-          <CartSocial/>
-          <CartSocial/>
-          <CartSocial/>
+          <div
+            style={{ width: "100%", display: "flex", flexDirection: "column" }}
+          >
+            <CartSocial />
+            <CartSocial />
+            <CartSocial />
           </div>
         </div>
       </div>

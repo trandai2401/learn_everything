@@ -5,11 +5,17 @@ import bg from "./bg-login.jpg";
 import icon from "./icon.svg";
 import { Checkbox, Form, Input } from "antd";
 import Button from "../../components/Button/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CartSocial from "./CartSocial";
+import { login } from "../../service/auth";
+import { useDispatch } from "react-redux";
+import { getProfileAsync } from "../../redux/authSlice";
 const cx = classNames.bind(style);
 
 export default function Login() {
+  const [form] = Form.useForm();
+  const dispath = useDispatch();
+  const navigate = useNavigate()
   return (
     <div
       style={{
@@ -94,38 +100,43 @@ export default function Login() {
       </div>
 
       <div className={cx(style["login_wrapper"])}>
-        <h3>Create account</h3>
+        <h3>Sign in</h3>
         <Form
+          form={form}
           name="basic"
           labelCol={{ span: 8 }}
           style={{ maxWidth: 600 }}
           // initialValues={{ remember: true }}
-          onFinish={() => {}}
+          onFinish={async (values) => {
+            const data = await login(values.email, values.password);
+            if (data.access_token) {
+              console.log(data);
+              localStorage.setItem("access_token", data.access_token);
+              dispath(getProfileAsync());
+              navigate('/')
+
+            } else {
+              //thong bao loi
+            }
+            form.resetFields(["email", "password"]);
+          }}
           onFinishFailed={() => {}}
           autoComplete="off"
         >
           <Form.Item
             style={{ marginBottom: "20px" }}
-            name="username"
-            rules={[{ required: true, message: "Please input your username!" }]}
+            name="email"
+            rules={[{ required: true, message: "Please input your email!" }]}
           >
-            <Input required placeholder="Your name" className={style.input} />
+            <Input required placeholder="Your email" className={style.input} />
           </Form.Item>
 
           <Form.Item
             style={{ marginBottom: "20px" }}
-            name="phone"
-            rules={[{ required: true, message: "Please input your username!" }]}
+            name="password"
+            rules={[{ required: true, message: "Please input your password!" }]}
           >
-            <Input placeholder="Your name" className={style.input} />
-          </Form.Item>
-
-          <Form.Item
-            style={{ marginBottom: "20px" }}
-            name="number"
-            rules={[{ required: true, message: "Please input your username!" }]}
-          >
-            <Input placeholder="Your name" className={style.input} />
+            <Input.Password placeholder="Password" className={style.input} />
           </Form.Item>
 
           <Form.Item
@@ -150,14 +161,6 @@ export default function Login() {
           </Form.Item>
         </Form>
         <div className={style.login_or_sign_up_with}>
-          <span style={{ color: "var(--text-color-3)" }}>
-            Already have an <strong>account</strong>?{" "}
-            <Link to="/sign_in">
-              <span className="main_text strong_text under_line">
-                Sign in now
-              </span>
-            </Link>
-          </span>
           <span
             style={{
               fontSize: "12px",
@@ -169,11 +172,21 @@ export default function Login() {
           >
             Or with
           </span>
-          <div style={{width: "100%", display: "flex",flexDirection:"column"}}>
-          <CartSocial/>
-          <CartSocial/>
-          <CartSocial/>
+          <div
+            style={{ width: "100%", display: "flex", flexDirection: "column" }}
+          >
+            <CartSocial />
+            <CartSocial />
+            <CartSocial />
           </div>
+          <span style={{ color: "var(--text-color-3)", marginTop: "25px" }}>
+            Already have an <strong>account</strong>?{" "}
+            <Link to="/sign_in">
+              <span className="main_text strong_text under_line">
+                Sign in now
+              </span>
+            </Link>
+          </span>
         </div>
       </div>
     </div>
