@@ -1,0 +1,15 @@
+.wrapperTabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: var(--main-color) !important;
+}
+.wrapperTabs .ant-tabs-tab .ant-tabs-tab-btn {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-color-2);
+}
+.wrapperTabs .ant-tabs-tab .ant-tabs-tab-btn:hover {
+  color: var(--main-color-2) !important;
+}
+
+.wrapperTabs .ant-tabs-ink-bar.ant-tabs-ink-bar-animated {
+  background-color: var(--main-color);
+}

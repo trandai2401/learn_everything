@@ -5,7 +5,6 @@ export const authSlice = createSlice({
   name: "counter",
   initialState: {
     user: null,
-    cart: [],
   },
   reducers: {
     setLogin: (state, action) => {

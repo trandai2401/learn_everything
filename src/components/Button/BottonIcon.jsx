@@ -4,10 +4,11 @@ import style from "./style.module.scss";
 import classNames from "classnames";
 
 const cx = classNames.bind(style);
-export default function BottonIcon({ icon, iconHover }) {
+export default function BottonIcon({ icon, iconHover, ...props }) {
   const [hover, setHover] = useState(false);
   return (
     <button
+      {...props}
       onMouseEnter={() => {
         setHover(true);
       }}

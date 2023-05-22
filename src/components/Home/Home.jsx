@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Carousel from "react-multi-carousel";
 
 import right from "../../access/img/right.svg";
@@ -12,11 +12,21 @@ import CircleBotton from "../Button/CircleBotton";
 import Title from "./Title/Title";
 import CartCourse from "./CartCourse/CartCourse";
 import CartToppic from "./CartToppic";
+import courseService from "../../service/courseService";
 const cx = classNames.bind(style);
 
 export default function Home() {
   const [lenghtScroll, setLenghtScroll] = useState(0);
   const list = useRef();
+  const [courses, setrCourses] = useState([]);
+  useEffect(() => {
+    const runFun = async () => {
+      let course = await courseService.getAll();
+      setrCourses(course);
+      // console.log(course);
+    };
+    runFun();
+  }, []);
   return (
     <div>
       <div className={cx(style.slide)}>
@@ -103,13 +113,11 @@ export default function Home() {
           slidesToSlide={1}
           swipeable
         >
-          <CartCourse title={"cart 1"} />
-          <CartCourse title={"cart 2"} />
-          <CartCourse title={"cart 3"} />
-          <CartCourse title={"cart 4"} />
-          <CartCourse title={"cart 5"} />
-          <CartCourse title={"cart 6"} />
-          <CartCourse title={"cart 7"} />
+          {courses.map((course) => {
+            return (
+              <CartCourse key={course.id} title={"cart 1"} course={course} />
+            );
+          })}
         </Carousel>
         {/* <div ref={list} className={cx(style.listCourse)}>
           <div className={cx(style.wrapperButton, style.buttonLRLC)}>

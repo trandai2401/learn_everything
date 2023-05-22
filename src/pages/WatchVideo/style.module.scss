@@ -1,0 +1,16 @@
+.wrapper {
+  display: flex;
+  .video {
+    width: -webkit-fill-available;
+    .wrapperTabs{
+      margin: 10px;
+      margin-left: 50px;
+    }
+  }
+  .lecture {
+    width: 500px;
+    position: relative;
+  }
+}
+
+

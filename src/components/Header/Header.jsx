@@ -15,6 +15,8 @@ import { Avatar, Dropdown } from "antd";
 import { SmileOutlined } from "@ant-design/icons";
 import { useDispatch, useSelector } from "react-redux";
 import { selectAuth, signOut } from "../../redux/authSlice";
+import { setStatus } from "../../redux/cartSlice";
+import CartDraw from "../CartDraw/CartDraw";
 
 const cx = classNames.bind(style);
 
@@ -80,48 +82,56 @@ export default function Header() {
     []
   );
   return (
-    <div className={cx(style.wrapper)}>
-      <div className={cx(style.left)}>
-        <Link to={""}>
-          <img className={cx(style.logo)} src={logo} alt="" />
-        </Link>
-        <div className={cx(style.category_wrapper)}>
-          <img src={logo_category} alt="" />
-          <span>Danh mục</span>
+    <>
+      {" "}
+      <div className={cx(style.wrapper)}>
+        <div className={cx(style.left)}>
+          <Link to={""}>
+            <img className={cx(style.logo)} src={logo} alt="" />
+          </Link>
+          <div className={cx(style.category_wrapper)}>
+            <img src={logo_category} alt="" />
+            <span>Danh mục</span>
+          </div>
+        </div>
+        <div className={cx(style.center)}>
+          <Search />
+        </div>
+        <div className={cx(style.right)}>
+          <BottonIcon
+            onClick={() => {
+              dispatch(setStatus(true));
+            }}
+            icon={cart}
+            iconHover={cartHover}
+          />
+          {user ? (
+            <Dropdown menu={{ items }}>
+              <Avatar
+                src="https://i.ytimg.com/vi/xXmXM0qRMbo/maxresdefault.jpg"
+                size={"large"}
+              />
+            </Dropdown>
+          ) : (
+            <>
+              <Button>
+                <Link
+                  to={"./login"}
+                  style={{ textDecoration: "none", color: "var(--primary)" }}
+                >
+                  Đăng nhập
+                </Link>
+              </Button>
+              <Button border={true}>
+                <Link to={"./sign_up"} style={{ textDecoration: "none" }}>
+                  Đăng ký
+                </Link>
+              </Button>
+            </>
+          )}
         </div>
       </div>
-      <div className={cx(style.center)}>
-        <Search />
-      </div>
-      <div className={cx(style.right)}>
-        <BottonIcon icon={cart} iconHover={cartHover} />
-        {user ? (
-          <Dropdown menu={{ items }}>
-            <Avatar
-              src="https://i.ytimg.com/vi/xXmXM0qRMbo/maxresdefault.jpg"
-              size={"large"}
-            />
-          </Dropdown>
-        ) : (
-          <>
-            <Button>
-              <Link
-                to={"./login"}
-                style={{ textDecoration: "none", color: "var(--primary)" }}
-              >
-                Đăng nhập
-              </Link>
-            </Button>
-            <Button border={true}>
-              <Link to={"./sign_up"} style={{ textDecoration: "none" }}>
-                Đăng ký
-              </Link>
-            </Button>
-          </>
-        )}
-
-     
-      </div>
-    </div>
+      <CartDraw />
+    </>
   );
 }

@@ -7,7 +7,6 @@ import { Checkbox, Form, Input } from "antd";
 import Button from "../../components/Button/Button";
 import { Link } from "react-router-dom";
 import CartSocial from "./CartSocial";
-import { login } from "../../service/auth";
 const cx = classNames.bind(style);
 
 export default function SignUp() {

@@ -1,0 +1,26 @@
+.text-gotocart {
+    margin-top: 20px;
+    margin-bottom: 25px;
+  bottom: {
+    margin: 0 auto;
+  }
+
+  h3{
+    font-weight: 700;
+    color: #242424;
+    margin-bottom: 15px;
+  }
+  div {
+    display: flex;
+    justify-content: center;
+
+    
+    button {
+      background-color: #ea4c89;
+      color: white;
+      font-size: 18px;
+      font-weight: 800;
+      width: 100%;;
+    }
+  }
+}

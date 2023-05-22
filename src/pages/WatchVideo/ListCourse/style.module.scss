@@ -1,0 +1,23 @@
+.wapper {
+  position: -webkit-sticky;
+  position: sticky;
+  width: 100%;
+  color: var(--primary) !important;
+  height: 100vh;
+  top: 0px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.submenu {
+  font-weight: 700;
+  font-size: 16px;
+  width: 355.5px;
+  line-height: 5px;
+}
+.item {
+  // background-color: aqua !important;
+  // color: var(--primary) !important;
+  font-size: 14px;
+  font-weight: 500;
+  width: 340px !important;
+}
