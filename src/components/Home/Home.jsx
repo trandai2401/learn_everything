@@ -119,19 +119,7 @@ export default function Home() {
             );
           })}
         </Carousel>
-        {/* <div ref={list} className={cx(style.listCourse)}>
-          <div className={cx(style.wrapperButton, style.buttonLRLC)}>
-            <CircleBotton icon={right} />
-            <CircleBotton icon={left} />
-          </div>
-          <CartCourse title={"cart 1"} />
-          <CartCourse title={"cart 2"} />
-          <CartCourse title={"cart 3"} />
-          <CartCourse title={"cart 4"} />
-          <CartCourse title={"cart 5"} />
-          <CartCourse title={"cart 6"} />
-          <CartCourse title={"cart 7"} />
-        </div> */}
+
         <Title text="Topics recommended for" strong="You" />
         <div ref={list} className={cx(style.listCourse, style.toppic)}>
           <CartToppic />

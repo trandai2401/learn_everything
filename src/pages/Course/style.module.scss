@@ -1,0 +1,153 @@
+.top {
+  height: 348px;
+  background-color: #1c1d1f;
+  padding-left: 70px;
+  padding-top: 15px;
+  padding-right: 500px;
+  position: relative;
+
+  .image {
+    width: 350px;
+    height: 500px;
+    background-color: white;
+    position: absolute;
+    right: 50px;
+    padding: 2px;
+    box-shadow: #00000049 0px 0px 7px;
+
+    img {
+      width: 100%;
+      height: 200px;
+    }
+    h3 {
+      font-weight: 700;
+      font-size: 34px;
+      span {
+        text-decoration-line: underline;
+        font-size: 24px;
+      }
+    }
+    button{
+
+      
+    }
+  }
+
+  .wrapper_category {
+    display: flex;
+
+    .link_category {
+      font-style: normal;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 23px;
+      /* identical to box height, or 192% */
+      text-decoration: none;
+      color: #ffb0c4;
+    }
+    img {
+      margin-left: 7px;
+      margin-right: 7px;
+    }
+  }
+
+  .title {
+    font-weight: 800;
+    font-size: 29px;
+    line-height: 29px;
+    /* or 100% */
+    height: 60px;
+    color: #ffffff;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .description {
+    color: white;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+  }
+  .rating {
+    display: flex;
+    margin-top: 8px;
+
+    .number {
+      color: #c06e0e;
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 19px;
+      margin-right: 8px;
+    }
+
+    .number_review {
+      margin-left: 8px;
+      color: #ffb0c4;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 19px;
+    }
+  }
+
+  .created_by {
+    display: inline-block;
+    margin-top: 8px;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    a {
+      color: #ffb0c4;
+      font-weight: 600;
+    }
+  }
+  .last_update {
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 22px;
+    display: flex;
+    margin-top: 8px;
+    span {
+      margin-right: 5px;
+    }
+  }
+}
+.conent_course {
+  width: 700px;
+  margin: 20px 45px;
+  font-weight: 700;
+  font-size: 25px;
+  color: #1c1d1f;
+
+  .title_section {
+    width: 500px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: --webkit-fill-available;
+  }
+  .description {
+    text-align: right;
+    width: 120px;
+  }
+}
+.youmaylike {
+  padding: 5px 25px;
+
+  .title {
+    font-weight: 600;
+    font-size: 25px;
+    line-height: 28px;
+    color: #202c45;
+    span {
+      color: #f2184f;
+    }
+  }
+
+  .line {
+    border: 2px solid #f2184f;
+    width: 78.7px;
+    margin-top: 4px;
+    margin-bottom: 15px;
+  }
+}

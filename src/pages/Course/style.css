@@ -1,0 +1,14 @@
+.section.ant-tree-treenode-selected {
+  background-color: #f2184f !important;
+}
+.section.ant-tree-treenode-selected::before {
+  background-color: #f2184f !important;
+}
+
+.section .ant-tree-node-selected {
+  background-color: #f2184f !important;
+}
+
+.ant-tree-list-holder-inner .section {
+  padding: 10px !important;
+}
