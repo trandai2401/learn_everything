@@ -1,0 +1,69 @@
+.wrapper {
+  margin-top: 8px;
+  height: 120px;
+  width: 90%;
+  // background-color: aqua;
+  border-top: 1px solid rgb(179, 179, 179);
+  padding-top: 8px;
+  display: flex;
+
+  img {
+    width: 150px;
+    height: 80%;
+    object-fit: cover;
+  }
+  .info {
+    margin-left: 10px;
+    width: 55%;
+
+    .title {
+      color: var(--text-color-1);
+      font-size: 16;
+      font-weight: 700;
+    }
+    .created_by {
+      display: block;
+      font-size: 12px;
+      margin-top: 6px;
+      font-weight: 500;
+    }
+    .rating {
+      display: flex;
+      margin-top: 5px;
+
+      .number {
+        color: #c06e0e;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 19px;
+        margin-right: 8px;
+      }
+      img {
+        width: 20px;
+      }
+      .number_review {
+        margin-left: 8px;
+        color: #535353;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 19px;
+      }
+    }
+    .numberOfLecture {
+      font-size: 14px;
+      font-weight: 500;
+      color: #474747;
+    }
+  }
+  .remove {
+    color: #f2184f;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .price{
+    margin-left: 15px;
+    font-weight: 700;
+    font-size: 18px;
+  }
+}

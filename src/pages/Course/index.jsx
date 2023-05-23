@@ -65,12 +65,18 @@ export default function Course() {
       <div className={cx([style.top])}>
         <div className={cx([style.image])}>
           <img src="https://i.ibb.co/YQV9nWP/27f4227fa557.webp" alt="" />
-          <div style={{ display: "flex" }}>
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+            }}
+          >
             <h3>
               350.000 <span>đ</span>
             </h3>
-            <Button>Add to Cart</Button>
-            <Button>Buy now</Button>
+            <Button border backgrourdColor={"#F2184F"} colorText={"white"}>Add to Cart</Button>
+            <Button border>Buy now</Button>
           </div>
         </div>
         <div className={cx([style.wrapper_category])}>

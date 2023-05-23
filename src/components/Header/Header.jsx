@@ -106,12 +106,18 @@ export default function Header() {
             iconHover={cartHover}
           />
           {user ? (
-            <Dropdown menu={{ items }}>
-              <Avatar
-                src="https://i.ytimg.com/vi/xXmXM0qRMbo/maxresdefault.jpg"
-                size={"large"}
-              />
-            </Dropdown>
+            <>
+              {" "}
+              <Link to="/mycourse" className={cx(style.category_wrapper)}>
+                <span>My Course</span>
+              </Link>{" "}
+              <Dropdown menu={{ items }}>
+                <Avatar
+                  src="https://i.ytimg.com/vi/xXmXM0qRMbo/maxresdefault.jpg"
+                  size={"large"}
+                />
+              </Dropdown>
+            </>
           ) : (
             <>
               <Button>
