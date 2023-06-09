@@ -23,7 +23,6 @@ export default function Home() {
     const runFun = async () => {
       let course = await courseService.getAll();
       setrCourses(course);
-      // console.log(course);
     };
     runFun();
   }, []);
@@ -40,26 +39,7 @@ export default function Home() {
 
       <div className={cx(style.courses)}>
         <Title text="Dành cho" strong="Bạn" />
-        <button
-          onClick={() => {
-            let id = null;
-            let pos = lenghtScroll;
-            clearInterval(id);
 
-            id = setInterval(frame, 5);
-            function frame() {
-              if (pos >= lenghtScroll + list.current.clientWidth / 5) {
-                clearInterval(id);
-                setLenghtScroll(lenghtScroll + list.current.clientWidth / 5);
-              } else {
-                pos += 5;
-                list.current.scrollLeft = pos;
-              }
-            }
-          }}
-        >
-          scoll
-        </button>
         <Carousel
           additionalTransfrom={0}
           arrows

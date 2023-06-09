@@ -112,7 +112,6 @@ export default function Login() {
           onFinish={async (values) => {
             const data = await login(values.email, values.password);
             if (data.access_token) {
-              console.log(data);
               localStorage.setItem("access_token", data.access_token);
               dispath(getProfileAsync());
               navigate("/");

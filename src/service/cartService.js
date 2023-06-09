@@ -13,6 +13,10 @@ const cartService = {
     const res = await instance.delete("/cart/" + courseId);
     return res.data;
   },
+  getMycourses: async () => {
+    const res = await instance.get("/cart/mycart");
+    return res.data;
+  },
 };
 
 export default cartService;

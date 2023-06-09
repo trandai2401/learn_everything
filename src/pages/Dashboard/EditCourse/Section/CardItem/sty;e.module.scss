@@ -1,0 +1,40 @@
+.wrapper {
+  color: var(--text-color-1);
+  width: "100px";
+  height: 150px;
+  display: flex;
+  padding: 5px;
+  margin-bottom: 20px;
+  padding-left: 20px;
+
+  &:hover .action button{
+    display: block;
+  }
+  &:hover {
+    box-shadow: #cccccc 0px 0px 6px;
+
+  }
+  img {
+    color: #313131;
+
+    &:hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+  .detail {
+    margin-left: 25px;
+    width: -webkit-fill-available;
+  }
+
+  .action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button{
+        display: none;
+        margin: 10px;
+    }
+  }
+}

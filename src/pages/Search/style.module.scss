@@ -1,0 +1,25 @@
+.wrapper {
+  color: var(--text-color-2);
+  padding: 25px;
+
+  .filter_result {
+    display: flex;
+    .filters {
+      width: 330px;
+      // background-color: black;
+
+      .checkbox {
+        padding: 7px;
+        font-size: 16px;
+        font-weight: 400;
+        // display: block;
+      }
+    }
+    .coursies {
+      width: -webkit-fill-available;
+      margin: 20px;
+
+     
+    }
+  }
+}

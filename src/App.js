@@ -10,6 +10,12 @@ import { getProfileAsync } from "./redux/authSlice";
 import WatchVideo from "./pages/WatchVideo";
 import Cart from "./pages/Cart";
 import Course from "./pages/Course";
+import MyCourse from "./pages/MyCourse";
+import Dasfboard from "./components/layouts/Dashboard";
+import ListCourse from "./pages/Dashboard/ListCourse";
+import AddCourse from "./pages/Dashboard/AddCourse";
+import EditCourse from "./pages/Dashboard/EditCourse";
+import Search from "./pages/Search/Search";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -39,6 +45,21 @@ const router = createBrowserRouter([
         path: "course/:id",
         element: <Course />,
       },
+      {
+        path: "course-management",
+        element: <MyCourse />,
+      },
+      { path: "search", element: <Search /> },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: <Dasfboard />,
+    children: [
+      { path: "coursies", element: <ListCourse /> },
+      { path: "coursies/:courseId", element: <EditCourse /> },
+
+      { path: "addCourse", element: <AddCourse /> },
     ],
   },
 ]);

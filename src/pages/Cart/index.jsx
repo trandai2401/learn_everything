@@ -6,11 +6,13 @@ import classNames from "classnames";
 import Button from "../../components/Button/Button";
 import ItemCart from "./cart";
 import formatNumber from "../../unitls";
+import { selectAuth } from "../../redux/authSlice";
 
 const cx = classNames.bind(style);
 
 export default function Cart() {
   const cart = useSelector(selectCart);
+  const auth = useSelector(selectAuth);
   const form = useRef();
   const total = useMemo(() => {
     return cart.items.reduce((pre, cur) => pre + cur.course.price, 0);
@@ -23,7 +25,11 @@ export default function Cart() {
           <span className={cx([style.numberOfCourse])}>8 Courses in Cart</span>
           <div className={cx([style.list_cart])}>
             {cart.items.map((cart) => (
-              <ItemCart key={cart.courseId} idCart={cart.courseId} course={cart.course} />
+              <ItemCart
+                key={cart.courseId}
+                idCart={cart.courseId}
+                course={cart.course}
+              />
             ))}
           </div>
         </div>
@@ -52,6 +58,7 @@ export default function Cart() {
         <input type="text" value={total} name="amount" />
         <input type="text" value={"VNBANK"} name="bankCode" />
         <input type="text" value={"vn"} name="language" />
+        <input type="text" hidden value={auth?.user?.sub} name="userId" />
         <button type="submit">Thanh toan</button>
       </form>
     </div>

@@ -27,42 +27,11 @@ export default function Header() {
     () => [
       {
         key: "1",
-        label: (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.antgroup.com"
-          >
-            1st menu item
-          </a>
-        ),
+        label: <Link to={"/dashboard/"}>Dạy học</Link>,
       },
       {
         key: "2",
-        label: (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.aliyun.com"
-          >
-            2nd menu item (disabled)
-          </a>
-        ),
-        icon: <SmileOutlined />,
-        disabled: true,
-      },
-      {
-        key: "3",
-        label: (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.luohanacademy.com"
-          >
-            3rd menu item (disabled)
-          </a>
-        ),
-        disabled: true,
+        label: <Link to={"/dashboard/"}>Cá nhân</Link>,
       },
       {
         key: "4",
@@ -81,6 +50,7 @@ export default function Header() {
     ],
     []
   );
+
   return (
     <>
       {" "}
@@ -108,12 +78,15 @@ export default function Header() {
           {user ? (
             <>
               {" "}
-              <Link to="/mycourse" className={cx(style.category_wrapper)}>
+              <Link to="/course-management" className={cx(style.category_wrapper)}>
                 <span>My Course</span>
               </Link>{" "}
               <Dropdown menu={{ items }}>
                 <Avatar
-                  src="https://i.ytimg.com/vi/xXmXM0qRMbo/maxresdefault.jpg"
+                  src={
+                    user?.avatar.thumbUrl ||
+                    "https://i.ytimg.com/vi/xXmXM0qRMbo/maxresdefault.jpg"
+                  }
                   size={"large"}
                 />
               </Dropdown>

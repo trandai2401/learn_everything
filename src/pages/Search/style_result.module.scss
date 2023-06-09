@@ -1,0 +1,53 @@
+.wrapper {
+  height: 150px;
+  display: flex;
+  cursor: pointer;
+  img {
+    object-fit: cover;
+  }
+
+  .detail {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: -webkit-fill-available;
+
+    span {
+      display: block;
+    }
+
+    .title {
+      font-weight: 700;
+      font-size: 17px;
+      color: var(--text-color-1);
+    }
+    .description{
+      margin-top: 10px;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    .created_by{
+      font-size: 13px;
+      margin-top: 8px;
+      font-weight: 800;
+      color: var(--main-color);
+    }
+    .lectures{
+      margin-top: 8px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text-color-3);
+    }
+  }
+  .price {
+    width: 230px;
+    color: var(--main-color);
+    font-weight: 800;
+  }
+}
+.hr {
+  height: 1px;
+  border: none;
+  background-color: #d3d3d3;
+  margin: 10px 0px;
+}

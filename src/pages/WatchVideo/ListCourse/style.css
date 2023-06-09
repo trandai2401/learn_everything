@@ -1,7 +1,6 @@
 .ant-menu-title-content {
   display: inline;
 }
-
 .ant-menu-item-selected.item-lecture {
   background-color: rgb(240, 225, 230) !important;
   color: var(--primary) !important;
@@ -13,13 +12,25 @@
   color: var(--primary) !important;
 }
 
-.item-lecture .ant-menu-submenu-title {
+.item-lecture.ant-menu-submenu-title {
   white-space: break-spaces;
   height: auto !important;
   line-height: 1.45 !important;
+  padding-top: 6px;
+  padding-bottom: 6px;
 }
 
-.item-lecture.ant-menu-item {
+:where(.css-dev-only-do-not-override-12jzuas).ant-menu-light
+  .ant-menu-submenu-selected
+  .ant-menu-title-content,
+.ant-menu-submenu-arrow {
+  color: var(--primary) !important;
+}
+
+.item-lecture.ant-menu-submenu-title .ant-menu-title-content {
+  color: var(--primary) !important;
+}
+.item-lecture .ant-menu-item {
   white-space: break-spaces !important;
   height: auto !important;
   line-height: 1.75 !important;

@@ -41,5 +41,24 @@ const courseService = {
 
     return course.data;
   },
+  getCourseToLearn: async (id) => {
+    const res = await instance.get(`course/purchasedcourse/${id}`);
+    return res.data;
+  },
+
+  getAllComment: async (courseId) => {
+    const res = await instance.get("comment/getAllbyCourse", {
+      params: { courseId: courseId },
+    });
+
+    return res.data;
+  },
+  search: async (data) => {
+    const res = await instance.get("course/search", {
+      params: data,
+    });
+
+    return res.data;
+  },
 };
 export default courseService;

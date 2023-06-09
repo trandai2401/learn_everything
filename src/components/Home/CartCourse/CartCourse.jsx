@@ -10,10 +10,12 @@ import formatNumber from "../../../unitls";
 import cartService from "../../../service/cartService";
 import { useDispatch } from "react-redux";
 import { setStatus, updateCarts } from "../../../redux/cartSlice";
+import { useNavigate } from "react-router-dom";
 const cx = classNames.bind(style);
 
 export default function CartCourse({ course }) {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const content = useMemo(
     () => (
       <div className={cx([style["wrapper-poper"]])}>
@@ -26,14 +28,13 @@ export default function CartCourse({ course }) {
           />
         </div>
 
-        <p>Content</p>
         <span>{course.description}</span>
-        <span className={cx(style.createdBy)}>Jack London</span>
+        <span className={cx(style.createdBy)}></span>
         <Button
           onClick={async () => {
             await cartService.add(course.id);
             dispatch(updateCarts());
-            dispatch(setStatus(true))
+            dispatch(setStatus(true));
           }}
           styles={{ display: "block", height: "35px" }}
           colorText={"white"}
@@ -51,7 +52,12 @@ export default function CartCourse({ course }) {
 
   return (
     <Popover placement="leftTop" content={content}>
-      <div className={cx(style.wrapper)}>
+      <div
+        className={cx(style.wrapper)}
+        onClick={() => {
+          navigate("/course/" + course.id);
+        }}
+      >
         <img
           src={course.image.mediumUrl}
           alt=""
