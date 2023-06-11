@@ -13,6 +13,10 @@ const lesson = {
     );
     return res.data;
   },
+  checkTest: async (data) => {
+    const res = await instance.post("/item/check", data);
+    return res.data;
+  },
 };
 
 export default lesson;

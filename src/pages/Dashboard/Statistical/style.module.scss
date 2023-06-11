@@ -1,0 +1,14 @@
+.statistic {
+  display: flex;
+  justify-content: space-around;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  grid-gap: 10px; /* Khoảng cách giữa các ô */
+}
+
+.grid-item {
+  padding: 20px;
+}

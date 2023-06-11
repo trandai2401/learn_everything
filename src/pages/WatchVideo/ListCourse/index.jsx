@@ -1,11 +1,13 @@
 import { Menu } from "antd";
 import React, { useEffect, useMemo } from "react";
-import uncheck from "./uncheck.svg";
 
 import style from "./style.module.scss";
 import classNames from "classnames";
 import check from "./check.svg";
+import uncheck from "./uncheck.svg";
 import "./style.css";
+import cartService from "../../../service/cartService";
+
 const cx = classNames.bind(style);
 function getItem(label, key, icon, children, type, className) {
   return {
@@ -19,6 +21,8 @@ function getItem(label, key, icon, children, type, className) {
 }
 
 export default function ListCourse({
+  refresh,
+  courseId,
   sections,
   lectureBeingLearned,
   setLectureSelected,
@@ -41,7 +45,7 @@ export default function ListCourse({
           getItem(
             item.title,
             `lec-${item.id}`,
-            <img alt="" src={uncheck} />,
+            <img alt="" src={item.learned ? check : uncheck} />,
             null,
             null,
             cx([style.item, "item-lecture"])
@@ -54,37 +58,34 @@ export default function ListCourse({
     return items;
   }, [sections]);
   const onClick = (e) => {
+    console.log(e);
+    cartService
+      .updateLecturingBeLearn(courseId, +e.key.substring(4))
+      .then(() => {
+        refresh();
+      });
     setLectureSelected(e.key);
   };
+
+  // console.log(
+  //   lectureBeingLearned
+  //     ? `lec-${lectureBeingLearned}`
+  //     : `lec-${sections[0]?.items[0].id}`
+  // );
+
   return (
     <Menu
+      defaultOpenKeys={sections.map((sec) => `sec-${sec.id}`)}
       className={cx(style.wapper)}
       onClick={onClick}
       style={{ width: "100%" }}
-      defaultSelectedKeys={["1"]}
-      defaultOpenKeys={["sub1"]}
+      defaultSelectedKeys={
+        lectureBeingLearned
+          ? `lec-${lectureBeingLearned}`
+          : `lec-${sections[0]?.items[0].id}`
+      }
       mode="inline"
       items={items}
-    >
-      <Menu.SubMenu
-        className={cx([style.submenu, "item-lecture"])}
-        title="12341324"
-      >
-        <Menu.Item
-          className={cx([style.item, "item-lecture"])}
-          key="1"
-          icon={<img alt="" src={check} />}
-        >
-          Item 1123412341234{" "}
-        </Menu.Item>
-        <Menu.Item
-          className={cx([style.item, "item-lecture"])}
-          key="2"
-          icon={<img alt="" src={check} />}
-        >
-          Item 1123412341234{" "}
-        </Menu.Item>
-      </Menu.SubMenu>
-    </Menu>
+    ></Menu>
   );
 }

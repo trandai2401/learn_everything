@@ -115,7 +115,7 @@ const Dasfboard = () => {
               ],
             },
             {
-              key: "2",
+              key: "statistical",
               icon: <VideoCameraOutlined />,
               label: "Thống kê",
             },

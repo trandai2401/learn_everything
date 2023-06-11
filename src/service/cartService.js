@@ -17,6 +17,12 @@ const cartService = {
     const res = await instance.get("/cart/mycart");
     return res.data;
   },
+  updateLecturingBeLearn: async (cartId, lecId) => {
+    const res = await instance.post("/cart/updateLecBeingLearn", {
+      cartId,
+      lecId,
+    });
+  },
 };
 
 export default cartService;

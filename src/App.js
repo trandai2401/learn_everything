@@ -16,6 +16,7 @@ import ListCourse from "./pages/Dashboard/ListCourse";
 import AddCourse from "./pages/Dashboard/AddCourse";
 import EditCourse from "./pages/Dashboard/EditCourse";
 import Search from "./pages/Search/Search";
+import Statistical from "./pages/Dashboard/Statistical/Statistical";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -60,6 +61,7 @@ const router = createBrowserRouter([
       { path: "coursies/:courseId", element: <EditCourse /> },
 
       { path: "addCourse", element: <AddCourse /> },
+      { path: "statistical", element: <Statistical /> },
     ],
   },
 ]);

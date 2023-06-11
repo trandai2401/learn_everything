@@ -19,7 +19,7 @@ export default function Search() {
   const [startEnd, setStartEnd] = useState([200000, 500000]);
   const [categories, setCategories] = useState([]);
   const [courseResult, setCourseResult] = useState([]);
-
+  const [size, setSize] = useState(6);
   useEffect(() => {
     const fun = async () => {
       const categories = await categoryService.getAllSubCategory();
@@ -33,17 +33,21 @@ export default function Search() {
       const objectJsonValue = Object.fromEntries(queryParams.entries());
       if (objectJsonValue.keyword)
         objectJsonValue.keyword = `"${objectJsonValue.keyword}"`;
+      else objectJsonValue.keyword = '""';
 
-      const courseResult = await courseService.search(
-        Object.keys(objectJsonValue).reduce((pre, current) => {
+      console.log(objectJsonValue);
+      const courseResult = await courseService.search({
+        ...Object.keys(objectJsonValue).reduce((pre, current) => {
+          console.log(objectJsonValue[current]);
           return { [current]: JSON.parse(objectJsonValue[current]), ...pre };
-        }, {})
-      );
-      console.log(courseResult);
-      setCourseResult(courseResult);
+        }, {}),
+        size,
+      });
+      setCourseResult(courseResult.items);
     };
+
     fun();
-  }, [queryParams.toString()]);
+  }, [queryParams.toString(), size]);
   return (
     <div className={cx([style.wrapper])}>
       <h2>Có {courseResult.length} kết quả</h2>
@@ -123,6 +127,9 @@ export default function Search() {
           {courseResult?.map((course, index) => (
             <CourseResult key={index} course={course} />
           ))}
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <Button onClick={() => setSize(size + 3)}>Xem thêm </Button>
+          </div>
         </div>
       </div>
     </div>
