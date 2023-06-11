@@ -8,8 +8,8 @@ import {
 } from "@ant-design/icons";
 import { Layout, Menu, Button, theme, Dropdown, Avatar } from "antd";
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import { signOut } from "../../../redux/authSlice";
-import { useDispatch } from "react-redux";
+import { selectAuth, signOut } from "../../../redux/authSlice";
+import { useDispatch, useSelector } from "react-redux";
 import { SmileOutlined } from "@ant-design/icons";
 
 const { Header, Sider, Content } = Layout;
@@ -21,48 +21,17 @@ const Dasfboard = () => {
   const {
     token: { colorBgContainer },
   } = theme.useToken();
+  const { user } = useSelector(selectAuth);
 
-  useEffect(() => {}, []);
   const items = useMemo(
     () => [
       {
         key: "1",
-        label: (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.antgroup.com"
-          >
-            1st menu item
-          </a>
-        ),
+        label: <Link to={"/"}>Về trang chủ</Link>,
       },
       {
         key: "2",
-        label: (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.aliyun.com"
-          >
-            2nd menu item (disabled)
-          </a>
-        ),
-        icon: <SmileOutlined />,
-        disabled: true,
-      },
-      {
-        key: "3",
-        label: (
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://www.luohanacademy.com"
-          >
-            3rd menu item (disabled)
-          </a>
-        ),
-        disabled: true,
+        label: <Link to={"/dashboard/"}>Cá nhân</Link>,
       },
       {
         key: "4",
@@ -149,8 +118,11 @@ const Dasfboard = () => {
           />
           <Dropdown menu={{ items }}>
             <Avatar
-              style={{ marginRight: "25px" }}
-              src="https://i.ytimg.com/vi/xXmXM0qRMbo/maxresdefault.jpg"
+              style={{ marginRight: "30px" }}
+              src={
+                user?.avatar.thumbUrl ||
+                "https://i.ytimg.com/vi/xXmXM0qRMbo/maxresdefault.jpg"
+              }
               size={"large"}
             />
           </Dropdown>
