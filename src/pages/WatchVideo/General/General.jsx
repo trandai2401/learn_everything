@@ -6,13 +6,19 @@ import { Link } from "react-router-dom";
 const cx = classNames.bind(style);
 
 export default function General({ course }) {
-  console.log(course?.course.created_by.avatar.thumbUrl);
+  console.log(course?.course.created_by?.avatar?.thumbUrl);
   return (
     <div>
       {course?.course.description}
 
       <div className={cx([style.created_by])}>
-        <Avatar size={64} src={course?.course.created_by.avatar.thumbUrl} />
+        <Avatar
+          size={64}
+          src={
+            course?.course.created_by?.avatar?.thumbUrl ||
+            "https://avatars.githubusercontent.com/u/97165289"
+          }
+        />
         <h4>{course?.course.created_by.fullName}</h4>
       </div>
       <div>

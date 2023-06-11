@@ -120,7 +120,7 @@ const Dasfboard = () => {
             <Avatar
               style={{ marginRight: "30px" }}
               src={
-                user?.avatar.thumbUrl ||
+                user?.avatar?.thumbUrl ||
                 "https://i.ytimg.com/vi/xXmXM0qRMbo/maxresdefault.jpg"
               }
               size={"large"}

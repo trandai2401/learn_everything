@@ -132,7 +132,7 @@ export default function Comments({ courseId }) {
       return {
         author: comment.account.fullName,
         avatar:
-          comment.account.avatar.thumbUrl ||
+          comment.account?.avatar?.thumbUrl ||
           "https://avatars.githubusercontent.com/u/97165289",
         content: <p>{comment.content}</p>,
         datetime: (
@@ -149,7 +149,10 @@ export default function Comments({ courseId }) {
       <Comment
         avatar={
           <Avatar
-            src="https://avatars.githubusercontent.com/u/97165289"
+            src={
+              user?.avatar?.thumbUrl ||
+              "https://avatars.githubusercontent.com/u/97165289"
+            }
             alt="Han Solo"
           />
         }

@@ -17,11 +17,13 @@ import AddCourse from "./pages/Dashboard/AddCourse";
 import EditCourse from "./pages/Dashboard/EditCourse";
 import Search from "./pages/Search/Search";
 import Statistical from "./pages/Dashboard/Statistical/Statistical";
+import SuccessSignUp from "./pages/SuccessSignUp";
 const router = createBrowserRouter([
   {
     path: "/",
     element: <DefaultLayout />,
     children: [
+      { path: "success_sign_up", element: <SuccessSignUp /> },
       {
         path: "",
         element: <Home />,

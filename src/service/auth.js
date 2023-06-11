@@ -10,6 +10,11 @@ const login = async (email, password) => {
 };
 
 const authService = {
+  signUp: async (data) => {
+    return await instance.post("account", {
+      ...data,
+    });
+  },
   getMe: async () => {
     const data = await instance
       .get("auth/profile")

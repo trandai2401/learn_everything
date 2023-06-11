@@ -5,11 +5,18 @@ import bg from "./bg-login.jpg";
 import icon from "./icon.svg";
 import { Checkbox, Form, Input } from "antd";
 import Button from "../../components/Button/Button";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import CartSocial from "./CartSocial";
+import appleIcon from "./apple-logo.png";
+import facebookIcon from "./facebook (2).png";
+import { authService } from "../../service/auth";
+import { notification, Space } from "antd";
+
 const cx = classNames.bind(style);
 
 export default function SignUp() {
+  const [api, contextHolder] = notification.useNotification();
+  const navigate = useNavigate();
   return (
     <div
       style={{
@@ -101,32 +108,43 @@ export default function SignUp() {
           style={{ maxWidth: 600 }}
           onFinish={(values) => {
             console.log(values);
+            authService
+              .signUp({
+                ...values,
+              })
+              .then(() => {
+                navigate("/success_sign_up");
+              });
+
+            //   .then(() => {
+
+            // });
           }}
           onFinishFailed={(values) => {}}
           autoComplete="off"
         >
           <Form.Item
             style={{ marginBottom: "20px" }}
-            name="username"
-            rules={[{ required: true, message: "Please input your username!" }]}
+            name="fullName"
+            rules={[{ required: true, message: "Please input your fullName!" }]}
           >
             <Input required placeholder="Your name" className={style.input} />
           </Form.Item>
 
           <Form.Item
             style={{ marginBottom: "20px" }}
-            name="phone"
-            rules={[{ required: true, message: "Please input your username!" }]}
+            name="email"
+            rules={[{ required: true, message: "Please input your email!" }]}
           >
-            <Input placeholder="Your name" className={style.input} />
+            <Input placeholder="Email" className={style.input} />
           </Form.Item>
 
           <Form.Item
             style={{ marginBottom: "20px" }}
-            name="number"
-            rules={[{ required: true, message: "Please input your username!" }]}
+            name="phone"
+            rules={[{ required: true, message: "Please input your phone!" }]}
           >
-            <Input placeholder="Your name" className={style.input} />
+            <Input placeholder="Your phone" className={style.input} />
           </Form.Item>
 
           <Form.Item
@@ -144,6 +162,7 @@ export default function SignUp() {
               border
               colorText={"white"}
               fontSize={"14px"}
+              htmlType="submit"
               styles={{ height: "38px", width: "100%", margin: "0px" }}
             >
               Submit
@@ -174,8 +193,8 @@ export default function SignUp() {
             style={{ width: "100%", display: "flex", flexDirection: "column" }}
           >
             <CartSocial />
-            <CartSocial />
-            <CartSocial />
+            <CartSocial icon={facebookIcon} title="Facebook" />
+            <CartSocial icon={appleIcon} title="Apple" />
           </div>
         </div>
       </div>

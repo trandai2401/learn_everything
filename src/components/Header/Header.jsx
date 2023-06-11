@@ -78,13 +78,16 @@ export default function Header() {
           {user ? (
             <>
               {" "}
-              <Link to="/course-management" className={cx(style.category_wrapper)}>
+              <Link
+                to="/course-management"
+                className={cx(style.category_wrapper)}
+              >
                 <span>My Course</span>
               </Link>{" "}
               <Dropdown menu={{ items }}>
                 <Avatar
                   src={
-                    user?.avatar.thumbUrl ||
+                    user?.avatar?.thumbUrl ||
                     "https://i.ytimg.com/vi/xXmXM0qRMbo/maxresdefault.jpg"
                   }
                   size={"large"}
